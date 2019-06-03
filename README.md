@@ -26,7 +26,7 @@ allprojects {
 
 ```groovy
 dependencies {
-    implementation "com.github.illiashenkoo:startaskpermissions:${latest.version}"
+    implementation "com.github.illiashenkoo:startask-permissions:${latest.version}"
 }
 ```
 
