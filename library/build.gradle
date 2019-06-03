@@ -1,0 +1,46 @@
+version = rootProject.libVersion
+
+rootProject.libraryModulePlugins.each {
+    apply plugin: it
+}
+
+group=rootProject.libGroup
+
+android {
+    def ext = rootProject.extensions.ext
+
+    compileSdkVersion ext.android.compileSdkVersion
+    buildToolsVersion ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion ext.android.minSdkVersion
+        targetSdkVersion ext.android.targetSdkVersion
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    dokka {
+        outputFormat = 'html'
+        outputDirectory = "$buildDir/javadoc"
+        skipDeprecated = true
+        reportUndocumented = true
+    }
+}
+
+dependencies {
+    rootProject.libraryModuleDependencies.each {
+        add(it.configuration, it.dependency, it.options)
+    }
+}

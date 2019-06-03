@@ -1,0 +1,3 @@
+include 'library'
+project(':library').name = 'startask-permissions'
+include ':sample'

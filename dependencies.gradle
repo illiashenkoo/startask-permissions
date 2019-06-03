@@ -1,0 +1,106 @@
+ext {
+
+    /*====================================== MAIN ======================================*/
+
+    android = [
+            compileSdkVersion: 28,
+            minSdkVersion    : 16,
+            targetSdkVersion : 28,
+            buildToolsVersion: "28.0.3",
+    ]
+
+    libVersion = "1.0.0"
+    libGroup = "com.github.illiashenkoo"
+
+    /*================================= BUILD PLUGINS ==================================*/
+
+    buildVersions = [
+            gradle   : '3.4.1',
+            kotlin   : '1.3.31',
+            dcendents: '2.1',
+            dokka    : '0.9.18',
+    ]
+
+    buildPlugins = [
+            gradle   : "com.android.tools.build:gradle:$buildVersions.gradle",
+            kotlin   : "org.jetbrains.kotlin:kotlin-gradle-plugin:$buildVersions.kotlin",
+            dcendents: "com.github.dcendents:android-maven-gradle-plugin:$buildVersions.dcendents",
+            dokka    : "org.jetbrains.dokka:dokka-android-gradle-plugin:$buildVersions.dokka",
+    ]
+
+    /*================================== DEPENDENCIES ==================================*/
+
+    def androidx_appcompat = '1.0.2'
+    def androidx_fragment = '1.0.0'
+    def junit_version = '4.12'
+    def mockito_version = '2.7.22'
+    def robolectric_version = '4.2.1'
+
+    def libs = [
+            kotlin_stdlib     : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$buildVersions.kotlin",
+
+            androidx_appcompat: "androidx.appcompat:appcompat:$androidx_appcompat",
+            androidx_fragment : "androidx.fragment:fragment:$androidx_fragment",
+
+    ]
+
+    def testLibs = [
+            jnuit      : "junit:junit:$junit_version",
+            mockito    : "org.mockito:mockito-core:$mockito_version",
+            robolectric: "org.robolectric:robolectric:$robolectric_version"
+    ]
+
+    /*============================== MODULE DEPENDENCIES  ==============================*/
+
+    def modules = [
+            library: ":startask-permissions",
+    ]
+
+    libraryModuleDependencies = [
+            [configuration: "implementation", dependency: libs.androidx_appcompat],
+            [configuration: "implementation", dependency: libs.androidx_fragment],
+
+            [configuration: "implementation", dependency: libs.kotlin_stdlib],
+
+            [configuration: "testImplementation", dependency: testLibs.jnuit],
+            [configuration: "testImplementation", dependency: testLibs.mockito],
+            [configuration: "testImplementation", dependency: testLibs.robolectric],
+    ]
+
+    sampleModuleDependencies = [
+            [configuration: "implementation", dependency: libs.androidx_appcompat],
+
+            [configuration: "implementation", dependency: libs.kotlin_stdlib],
+
+            [configuration: "implementation", dependency: project(modules.library)]
+    ]
+
+    /*==================================== PLUGINS =====================================*/
+
+    def plugins = [
+            android_library          : 'com.android.library',
+            android_application      : 'com.android.application',
+            kotlin_android           : 'kotlin-android',
+            kotlin_android_extensions: 'kotlin-android-extensions',
+            kotlin_kapt              : 'kotlin-kapt',
+            android_maven            : 'com.github.dcendents.android-maven',
+            dokka_android            : 'org.jetbrains.dokka-android',
+            jacoco                   : 'jacoco',
+
+    ]
+
+    sampleModulePlugins = [
+            plugins.android_application,
+            plugins.kotlin_android,
+            plugins.kotlin_android_extensions,
+            plugins.kotlin_kapt,
+    ]
+
+    libraryModulePlugins = [
+            plugins.android_library,
+            plugins.kotlin_android,
+            plugins.android_maven,
+            plugins.dokka_android,
+    ]
+
+}
