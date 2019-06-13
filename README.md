@@ -1,5 +1,6 @@
 # StartaskPermissions
 [![JitPack](https://jitpack.io/v/illiashenkoo/startask-permissions.svg)](https://jitpack.io/#illiashenkoo/startask-permissions)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-StartaskPermissions-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/7698)
 
 StartaskPermissions is a library that helps to handle runtime permissions on Android, entirely written using Kotlin language.
 
