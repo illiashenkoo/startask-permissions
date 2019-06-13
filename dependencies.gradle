@@ -9,7 +9,7 @@ ext {
             buildToolsVersion: "28.0.3",
     ]
 
-    libVersion = "1.0.0"
+    libVersion = "1.0.5"
     libGroup = "com.github.illiashenkoo"
 
     /*================================= BUILD PLUGINS ==================================*/
