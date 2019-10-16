@@ -3,20 +3,20 @@ ext {
     /*====================================== MAIN ======================================*/
 
     android = [
-            compileSdkVersion: 28,
+            compileSdkVersion: 29,
             minSdkVersion    : 16,
-            targetSdkVersion : 28,
-            buildToolsVersion: "28.0.3",
+            targetSdkVersion : 29,
+            buildToolsVersion: "29.0.0",
     ]
 
-    libVersion = "1.0.5"
+    libVersion = "1.0.6"
     libGroup = "com.github.illiashenkoo"
 
     /*================================= BUILD PLUGINS ==================================*/
 
     buildVersions = [
-            gradle   : '3.4.1',
-            kotlin   : '1.3.31',
+            gradle   : '3.5.1',
+            kotlin   : '1.3.50',
             dcendents: '2.1',
             dokka    : '0.9.18',
     ]
@@ -30,8 +30,8 @@ ext {
 
     /*================================== DEPENDENCIES ==================================*/
 
-    def androidx_appcompat = '1.0.2'
-    def androidx_fragment = '1.0.0'
+    def androidx_appcompat = '1.1.0'
+    def androidx_fragment = '1.1.0'
     def junit_version = '4.12'
     def mockito_version = '2.7.22'
     def robolectric_version = '4.2.1'
